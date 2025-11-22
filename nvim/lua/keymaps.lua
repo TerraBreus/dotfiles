@@ -28,7 +28,8 @@ vim.keymap.set('n', '<leader>w', ':NvimTreeToggle<CR>')
 
 --Create and cycle through tabs
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>')
-vim.keymap.set('n', '<leader><tab>', ':tabn<CR>')
+vim.keymap.set('n', '<leader>c', ':tabn<CR>')
+vim.keymap.set('n', '<leader>z', ':tabp<CR>')
 
 --Splitting windows
 vim.keymap.set('n', '<leader>s', ':split<CR>')
