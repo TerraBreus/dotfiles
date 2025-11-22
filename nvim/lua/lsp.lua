@@ -2,17 +2,20 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
--- Load LSP server config
 local lspconfig = require("lspconfig")
 
--- Setup clangd
-lspconfig.clangd.setup({})
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+lspconfig.clangd.setup({
+    capabilities = capabilities,
+    on_attach = function(_, bufnr)
+        vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = bufnr })
+    end,
+})
 
--- Diagnostics for compilation errors.
 vim.diagnostic.config({
   virtual_text = {
-    prefix = "●", -- or ">>", "●", etc.
+    prefix = "●",
     spacing = 4,
   },
 })
