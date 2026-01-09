@@ -11,16 +11,11 @@ vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = 'Telescope live gre
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
--- Toggle diagnostics for LSP
 vim.keymap.set('n', '<leader>d', function()
-  if vim.diagnostic.is_enabled() then
-    vim.diagnostic.disable()
-    print("Diagnostics disabled")
-  else
-    vim.diagnostic.enable()
-    print("Diagnostics enabled")
-  end
-end, { desc = "Toggle Diagnostics" })
+	local is_enabled = vim.diagnostic.is_enabled()
+	vim.diagnostic.enable(not is_enabled)
+	end
+	)
 
 -- Toggle NvimTree from the left.
 require("nvim-tree").setup()
@@ -28,8 +23,8 @@ vim.keymap.set('n', '<leader>w', ':NvimTreeToggle<CR>')
 
 --Create and cycle through tabs
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>')
-vim.keymap.set('n', '<leader>c', ':tabn<CR>')
 vim.keymap.set('n', '<leader>z', ':tabp<CR>')
+vim.keymap.set('n', '<leader>c', ':tabn<CR>')
 
 --Splitting windows
 vim.keymap.set('n', '<leader>s', ':split<CR>')

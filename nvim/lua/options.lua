@@ -2,7 +2,6 @@ vim.cmd.set("rnu")
 vim.cmd.set("number")
 vim.cmd.set("ai")
 vim.cmd.set("clipboard+=unnamedplus")
-vim.cmd.set("mouse=")
 vim.cmd.set("tabstop=4")
 vim.cmd.set("shiftwidth=4")
 
