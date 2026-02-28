@@ -12,7 +12,7 @@ end
 
 return {
 	s("canon", {
-		t("class "), i(1, "ClassName"), t({ " {", "\tpublic:", "\t\t" }),
+		t("class "), i(1, "ClassName"), t({ " {", "\tprivate:", "\t\t", "\tpublic:", "\t\t" }),
 		-- Default Constructor
 		f(copy, { 1 }), t({ "(void);", "\t\t" }),
 		-- Copy Constructor
@@ -20,7 +20,7 @@ return {
 		-- Assignment Operator
 		f(copy, { 1 }), t("& operator=(const "), f(copy, { 1 }), t({ "& other);", "\t\t" }),
 		-- Destructor
-		t("~"), f(copy, { 1 }), t({ "(void);", "", "\tprivate:", "\t\t" }),
+		t("~"), f(copy, { 1 }), t({ "(void);"}),
 		i(0),
 		t({ "", "};" }),
 	}),
