@@ -24,4 +24,21 @@ return {
 		i(0),
 		t({ "", "};" }),
 	}),
+	s("can_impl", {
+		-- Constructor
+		f(copy, { 1 }), t("::"), i(1, "Classname"), t({ "(void) {", "\t" }),
+		i(2), 
+		t({ "", "}", "", "" }),
+
+		-- Copy Constructor
+		f(copy, { 1 }), t("::"), f(copy, { 1 }), t("(const "), f(copy, { 1 }), t({ "& other) {", "\t*this = other;", "}", "", "" }),
+
+		-- Assignment Operator
+		f(copy, { 1 }), t("& "), f(copy, { 1 }), t("::operator=(const "), f(copy, { 1 }), t({ "& other) {", "\tif (this != &other) {", "\t\t" }),
+		i(0),
+		t({ "", "\t}", "\treturn *this;", "}", "", "" }),
+
+		-- Destructor
+		f(copy, { 1 }), t("::~"), f(copy, { 1 }), t({ "(void) {", "}", "" }),
+	}),
 }
